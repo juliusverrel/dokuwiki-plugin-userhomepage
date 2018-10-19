@@ -29,7 +29,7 @@ class helper_plugin_userhomepage extends DokuWiki_Plugin {
         global $conf;
 
         if ($userLogin == null) {
-            $userLogin = $_SERVER['REMOTE_USER'];
+            $userLogin = $this->privateNamespace();
         }
         if (strpos($this->getConf('public_pages_ns'),':%NAME%:%START%') !== false) {
             $target = str_replace('%NAME%', $userLogin, $this->getConf('public_pages_ns'));
